@@ -19,6 +19,34 @@ public class UserService {
     public Optional<User> getUser(int id){
         return userRepository.getUser(id);
     }
+
+    //Solo lo uso para el front, por ser autoincremental
+    public User createUser(User user){
+        //obtiene el maximo id existente en la coleccion
+        Optional<User> userIdMaximo = userRepository.lastUserId();
+
+        //si el id del Usaurio que se recibe como parametro es nulo, entonces valida el maximo id existente en base de datos
+        if (user.getId() == null) {
+            //valida el maximo id generado, si no hay ninguno aun el primer id sera 1
+            if (userIdMaximo.isEmpty())
+                user.setId(1);
+                //si retorna informacion suma 1 al maximo id existente y lo asigna como el codigo del usuario
+            else
+                user.setId(userIdMaximo.get().getId() + 1);
+        }
+
+        Optional<User> e = userRepository.getUser(user.getId());
+        if (e.isEmpty()) {
+            if (emailExists(user.getEmail())==false){
+                return userRepository.create(user);
+            }else{
+                return user;
+            }
+        }else{
+            return user;
+        }
+    }
+
     public User create(User user) {
         if (user.getId() == null) {
             return user;

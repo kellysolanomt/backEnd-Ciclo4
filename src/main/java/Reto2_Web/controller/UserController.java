@@ -33,6 +33,13 @@ public class UserController {
         return userService.create(user);
     }
 
+    //Metodo post solo para el front end
+    @PostMapping("/newUser")
+    @ResponseStatus(HttpStatus.CREATED)
+    public User createUser(@RequestBody User user) {
+        return userService.createUser(user);
+    }
+
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public User update(@RequestBody User user) {
