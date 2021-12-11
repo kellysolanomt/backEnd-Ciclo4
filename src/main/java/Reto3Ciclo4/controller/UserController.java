@@ -1,7 +1,7 @@
-package Reto2_Web.controller;
+package Reto3Ciclo4.controller;
 
-import Reto2_Web.model.User;
-import Reto2_Web.service.UserService;
+import Reto3Ciclo4.model.User;
+import Reto3Ciclo4.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -34,11 +34,11 @@ public class UserController {
     }
 
     //Metodo post solo para el front end
-    @PostMapping("/newUser")
-    @ResponseStatus(HttpStatus.CREATED)
-    public User createUser(@RequestBody User user) {
-        return userService.createUser(user);
-    }
+    //@PostMapping("/newUser")
+    //@ResponseStatus(HttpStatus.CREATED)
+    //public User createUser(@RequestBody User user) {
+    //    return userService.createUser(user);
+    //}
 
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)

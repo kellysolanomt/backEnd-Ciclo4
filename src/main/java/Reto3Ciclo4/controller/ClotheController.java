@@ -1,9 +1,7 @@
-package Reto2_Web.controller;
+package Reto3Ciclo4.controller;
 
-import Reto2_Web.model.Clothe;
-import Reto2_Web.model.User;
-import Reto2_Web.service.ClotheService;
-import Reto2_Web.service.UserService;
+import Reto3Ciclo4.model.Clothe;
+import Reto3Ciclo4.service.ClotheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

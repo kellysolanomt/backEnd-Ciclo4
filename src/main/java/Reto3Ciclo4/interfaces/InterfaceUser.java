@@ -1,6 +1,6 @@
-package Reto2_Web.interfaces;
+package Reto3Ciclo4.interfaces;
 
-import Reto2_Web.model.User;
+import Reto3Ciclo4.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
@@ -9,6 +9,7 @@ public interface InterfaceUser extends MongoRepository<User, Integer> {
 
     Optional<User> findByEmail(String email);
     Optional<User> findByEmailAndPassword(String email, String password);
+
     //Para seleccionar el usuario con el id maximo
     Optional<User> findTopByOrderByIdDesc();
 }

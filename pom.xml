@@ -11,7 +11,7 @@
 	<groupId>Reto2_Web</groupId>
 	<artifactId>Reto2_Web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Reto2_Web</name>
+	<name>Reto3Ciclo4</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

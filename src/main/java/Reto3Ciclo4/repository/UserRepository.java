@@ -1,11 +1,10 @@
-package Reto2_Web.repository;
+package Reto3Ciclo4.repository;
 
-import Reto2_Web.interfaces.InterfaceUser;
-import Reto2_Web.model.User;
+import Reto3Ciclo4.interfaces.InterfaceUser;
+import Reto3Ciclo4.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 

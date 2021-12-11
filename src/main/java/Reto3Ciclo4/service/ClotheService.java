@@ -1,7 +1,7 @@
-package Reto2_Web.service;
+package Reto3Ciclo4.service;
 
-import Reto2_Web.model.Clothe;
-import Reto2_Web.repository.ClotheRepository;
+import Reto3Ciclo4.model.Clothe;
+import Reto3Ciclo4.repository.ClotheRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,13 +1,12 @@
-package Reto2_Web.service;
+package Reto3Ciclo4.service;
 
-import Reto2_Web.model.User;
-import Reto2_Web.repository.UserRepository;
+import Reto3Ciclo4.model.User;
+import Reto3Ciclo4.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 @Service
 public class UserService {
@@ -20,21 +19,14 @@ public class UserService {
         return userRepository.getUser(id);
     }
 
-    //Solo lo uso para el front, por ser autoincremental
-    public User createUser(User user){
-        //obtiene el maximo id existente en la coleccion
-        Optional<User> userIdMaximo = userRepository.lastUserId();
-
-        //si el id del Usaurio que se recibe como parametro es nulo, entonces valida el maximo id existente en base de datos
+    public User create(User user) {
+        Optional <User> userIdMaximo = userRepository.lastUserId();
         if (user.getId() == null) {
-            //valida el maximo id generado, si no hay ninguno aun el primer id sera 1
-            if (userIdMaximo.isEmpty())
+            if (userIdMaximo.isEmpty()) {
                 user.setId(1);
-                //si retorna informacion suma 1 al maximo id existente y lo asigna como el codigo del usuario
-            else
-                user.setId(userIdMaximo.get().getId() + 1);
+            }else{
+                user.setId(userIdMaximo.get().getId() + 1);}
         }
-
         Optional<User> e = userRepository.getUser(user.getId());
         if (e.isEmpty()) {
             if (emailExists(user.getEmail())==false){
@@ -47,22 +39,6 @@ public class UserService {
         }
     }
 
-    public User create(User user) {
-        if (user.getId() == null) {
-            return user;
-        }else {
-            Optional<User> e = userRepository.getUser(user.getId());
-            if (e.isEmpty()) {
-                if (emailExists(user.getEmail())==false){
-                    return userRepository.create(user);
-                }else{
-                    return user;
-                }
-            }else{
-                return user;
-            }
-        }
-    }
 
     public User update(User user) {
 
@@ -74,6 +50,12 @@ public class UserService {
                 }
                 if (user.getName() != null) {
                     userDb.get().setName(user.getName());
+                }
+                if (user.getBirthtDay() != null){
+                    userDb.get().setBirthtDay(user.getBirthtDay());
+                }
+                if (user.getMonthBirthtDay() != null){
+                    userDb.get().setMonthBirthtDay(user.getMonthBirthtDay());
                 }
                 if (user.getAddress() != null) {
                     userDb.get().setAddress(user.getAddress());
